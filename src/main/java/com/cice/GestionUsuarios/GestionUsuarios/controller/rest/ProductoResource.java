@@ -34,8 +34,9 @@ public class ProductoResource {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @RequestMapping(value = "producto/")
+    @RequestMapping(value = "producto/{idUsuario}", method = RequestMethod.DELETE)
     public ResponseEntity<List<ProductoDTO>> eliminarProductosByIdUsuario(@PathVariable Long idUsuario){
+        System.out.println("Entrado");
         List<ProductoDTO> productosEliminados = productoService.eliminarProductosByUsuario(idUsuario);
         return ResponseEntity.ok(productosEliminados);
     }
